@@ -18,10 +18,7 @@ def get_potential_grade(assignment_count, grade):
 	potential_grade = int(assignment_count) * 2 + float(grade)
 	return potential_grade
 
-for i, name in enumerate(names):
-	grade = str(grades[i])
-	assignment_count = assignments[i]
-	potential_grade = get_potential_grade( assignment_count, grade )
-	potential_grade = str(potential_grade)
-	final_message = message.format(name, assignment_count, grade, potential_grade )
+for name, assignment, grade in zip(names, assignments, grades):
+	potential_grade = get_potential_grade( assignment, grade )
+	final_message = message.format(name, assignment, grade, potential_grade )
 	print( final_message )
