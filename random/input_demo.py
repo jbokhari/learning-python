@@ -1,6 +1,17 @@
-names =  input('Enter names separated by commas:').split(',')
-assignments =  input('Enter assignment counts separated by commas:').split(',')
-grades =  input('Enter grades separated by commas (0-100):').split(',')
+while True:
+	try:
+		names =  input('Enter names separated by commas:').split(',')
+		assignments =  input('Enter assignment counts separated by commas:').split(',')
+		if len(names) != len(assignments):
+			print("Error, you entered different ammounts of data")
+			continue
+		grades =  input('Enter grades separated by commas (0-100):').split(',')
+		if len(assignments) == len(grades):
+			break
+		print("Error, you entered different ammounts of data")
+	except KeyboardInterrupt as e:
+		print("\nCanceled by user.")
+		exit()
 
 if len(names) != len(assignments) or len(assignments) != len(grades):
 	print("Error: Lists were not equal length")
